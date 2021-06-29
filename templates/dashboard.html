@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+<title>
+    Deshboard
+</title>
+{% endblock title %}
+
+{% block content %}
+{% include "navbar_admin.html" %}
+<div class="container p-2 mt-4  ">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{% url 'admindeshboard' %}">
+<div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">All Posts</h5>
+      <p class="card-text"><h1 class="text-center"><i class="fas fa-book"></i></h1></p>
+    </div>
+    </div>
+    </div>
+</a>
+    <div class="col-md-3">
+        <a href="{% url 'adminusers' %}">
+    <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+       
+        <div class="card-body">
+          <h5 class="card-title">All Users</h5>
+          <p class="card-text">
+              <h1 class="text-center"><i class="fas fa-users"></i></h1>
+          </p>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>Home Page</title>
+{% endblock title %}
+
+{% block content %}
+
+
+{% include "navbar.html" %}
+<h3>Home page</h3>
+
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">no</th>
+        <th scope="col">image</th>
+        <th scope="col">download</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for i in obj %}
+      <tr>
+        <th scope="row">{{i.id}}</th>
+        <td>{{i.name}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.no}}</td>
+        <td><img src="/media/{{i.covver_image}}" height="50" width="100"></td>
+        <td><a href="/media/{{i.file}}" download>Download</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{% include "navbar_admin.html" %}
+
+<div class="container-fluid bg-light p-5"> 
+    <h1 class="h1 text-success text-center">Add Book</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-sm-10 col-xs-10">
+<form method="POST"  enctype="multipart/form-data">
+    {% csrf_token %}
+    {% if messages %}
+    {% for msg in messages %}
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <strong>{{msg}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+    {% endif %}
+    <div class="form-group">
+        <input type="text" class="form-control" name="name" placeholder="Name">
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" name="author" placeholder="author">
+    </div>
+    <div class="form-group">
+        <input type="no" class="form-control" name="no" placeholder=No> 
+    </div>
+    <div class="form-group">
+        <label>Cover image</label>
+        <input type="file" name="covver_image" placeholder="Cover Image" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>File</label>
+        <input type="file" name="file" placeholder="Add File" class="form-control">
+    </div>
+    
+    <input type="submit" class="form-control btn btn-primary">
+</form>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "navbar_admin.html" %}
+<a href="{% url 'admindeshboard' %}"><h1 class="text-white bg-success text-center p-3">ALL Books</h1></a>
+<div class="container p-2 mt-3">
+   
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-3">
+    <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-header">Name : {{book.name}}</div>
+    <div class="card-body text-success">
+      <p class="card-text">
+          <img src="../media/{{book.covver_image}}" height="100" width="200">
+      </p>
+    </div>
+    <div class="card-footer text-center bg-success">
+        <a href="../media/{{book.file}}" class="text-white" download>
+            <i class="fas fa-download btn btn-primary"></i> </a>
+        <a href="{% url 'update_book' book.id %}"><i class="fas fa-edit btn btn-warning"></i></a>
+        <a href="{% url 'delete_book' book.id %}"><i class="far fa-trash-alt btn btn-danger"></i></a>
+        
+    </div>
+</div>
+</div>
+{% endfor %}
+</div>
+</div>
+{% endblock  %}

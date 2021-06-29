@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include "navbar_admin.html" %}
+<h1 class="text-white text-center bg-danger p-3">All Users</h1>
+<div class="container">
+<div class="row">
+{% for user in users %}
+{% if not user.is_staff %}
+<div class="col-md-3">
+    <div class="card border-danger mb-3" style="max-width: 18rem;">
+    <div class="card-header bg-danger text-white">Name : {{user.username}}</div>
+    <div class="card-body text-success">
+      <p class="card-text text-center">
+          <img src="../media/images/defaultuser.png" height="200" width="200">
+      </p>
+    </div>
+    <div class="card-footer text-center bg-danger">
+        <a href="{% url 'update_user' user.id %}"><i class="fas fa-edit btn btn-warning"></i></a>
+        <a href="{% url 'delete_user' user.id %}"><i class="far fa-trash-alt btn btn-success"></i></a>
+    </div>
+</div>
+</div>
+{% endif %}
+{% endfor %}
+</div>
+</div>
+{% endblock  %}
